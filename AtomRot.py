@@ -160,8 +160,11 @@ if rot_flag:
     print(" ~ ~ Iniciando Rotación ~ ~ ")
     print("--------------------------------")
     print("")
+    #Creando carpeta
+    folder = "rot-" +  str(alpha_) + "-" +  str(beta_) + "-" +  str(gamma_)
+    os.mkdir(folder)
     #Creando archivo nuevo
-    new_file = open("POSCAR-rot-" +  str(alpha_) + "-" +  str(beta_) + "-" +  str(gamma_) + ".vasp", "w")
+    new_file = open(folder + "/POSCAR", "w")
     #Escribiendo las primeras líneas
     new_file.write(lines[0])
     new_file.write(lines[1])
@@ -223,7 +226,9 @@ elif tras_flag:
     #Creando múltiples archivos
     for n in range(fnumber):
         N = n + 1
-        new_file = open("POSCAR-tras-" +  str(round(N * dx, 2)) + "-" +  str(round(N * dy, 2)) + "-" +  str(round(N * dz, 2)) + ".vasp", "w")
+        folder = "tras-" +  str(round(N * dx, 2)) + "-" +  str(round(N * dy, 2)) + "-" +  str(round(N * dz, 2))
+        os.mkdir(folder)
+        new_file = open(folder + "/POSCAR", "w")
         #Escribiendo las primeras líneas
         new_file.write(lines[0])
         new_file.write(lines[1])
